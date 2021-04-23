@@ -18,16 +18,15 @@ function App() {
     <Container>
       <Row>
         <Col>
-          <div className={styles.titleColumn}>ID</div>
-          <div>Name</div>
-          <div>Tilt Color</div>
-          <div>Temp</div>
-          <div>Set temp</div>
-          <div>Hysteresis</div>
-          <div>Specific gravity</div>
-          <div>Cool shelby addr</div>
-          <div>Heat shelby addr</div>
-          <div>Rssi</div>
+          <div className={styles.titleColumn}>Name</div>
+          <div className={styles.titleColumn}>Tilt Color</div>
+          <div className={styles.titleColumn}>Temp</div>
+          <div className={styles.titleColumn}>Set temp</div>
+          <div className={styles.titleColumn}>Hysteresis</div>
+          <div className={styles.titleColumn}>Specific gravity</div>
+          <div className={styles.titleColumn}>Cool shelby addr</div>
+          <div className={styles.titleColumn}>Heat shelby addr</div>
+          <div className={styles.titleColumn}>Rssi</div>
         </Col>
         {wort_cols}
       </Row>

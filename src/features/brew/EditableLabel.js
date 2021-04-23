@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './EditLabel.module.css'
 
 const ENTER_KEY_CODE = 13;
 const DEFAULT_LABEL_PLACEHOLDER = "Click To Edit";
@@ -110,7 +111,7 @@ const DEFAULT_LABEL_PLACEHOLDER = "Click To Edit";
         
         const labelText = this.isTextValueValid() ? this.state.value : (this.props.labelPlaceHolder || DEFAULT_LABEL_PLACEHOLDER);
         return <div>
-            <label className={this.props.labelClassName}
+            <label className={`${this.props.labelClassName || ''} ${styles.editLabel}`}
                 onClick={this.handleFocus}
                 style={{
                 	fontSize: this.props.labelFontSize,
