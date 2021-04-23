@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import EditableLabel from './EditableLabel';
-import { updateWort } from './brewSlice'
+import { updateWort, saveState } from './brewSlice'
 
 
 export const Wort = (props) => {
@@ -11,8 +11,8 @@ export const Wort = (props) => {
     const dispatch = useDispatch()
     const dispatch_wort = () => {
         dispatch(updateWort({wort_id: wort.id, wort: draft_wort}))
+        dispatch(saveState())
     }
-
 
     const handle_name_change = value => {
         draft_wort.name = value;
