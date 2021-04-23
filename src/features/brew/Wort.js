@@ -35,12 +35,12 @@ export const Wort = (props) => {
     }
 
     const handle_cooler_sh_change = value => {
-        draft_wort.cooler_shelby_addr = value;
+        draft_wort.cooler_shelly_addr = value;
         dispatch_wort()
     }
 
     const handle_heater_sh_change = value => {
-        draft_wort.heater_shelby_addr = value;
+        draft_wort.heater_shelly_addr = value;
         dispatch_wort()
     }
 
@@ -79,14 +79,14 @@ export const Wort = (props) => {
             <div>
                 <EditableLabel 
                     type='url'
-                    value={wort.cooler_shelby_addr}
+                    value={wort.cooler_shelly_addr}
                     onFocusOut={handle_cooler_sh_change}
                 />
             </div>
             <div>
                 <EditableLabel 
                     type='url'
-                    value={wort.heater_shelby_addr}
+                    value={wort.heater_shelly_addr}
                     onFocusOut={handle_heater_sh_change}
                 />
             </div>
