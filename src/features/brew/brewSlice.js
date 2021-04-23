@@ -64,7 +64,7 @@ export const saveStateThunk = createAsyncThunk(
         const response = await fetch('/brew/save_state', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({state: state})
+        body: JSON.stringify({state: state.brew})
     })
     return response.json()
   }
