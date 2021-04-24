@@ -3,52 +3,52 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const initialState = {
   worts: [
     {
-      id: 0,
-      name: 'wort0',
-      tilt_color: 'color0',
-      temp: 0,
-      set_temp: 0,
-      hysteresis: 0,
-      specific_gravity: 'sg0',
-      cooler_shelly_addr: 'csa0',
-      heater_shelly_addr: 'hsa0',
-      rssi: 'rssi0'
+      // id: 0,
+      // name: 'wort0',
+      // tilt_color: 'color0',
+      // temp: 0,
+      // set_temp: 0,
+      // hysteresis: 0,
+      // specific_gravity: 'sg0',
+      // cooler_shelly_addr: 'csa0',
+      // heater_shelly_addr: 'hsa0',
+      // rssi: 'rssi0'
     },
     {
-      id: 1,
-      name: 'wort1',
-      tilt_color: 'color1',
-      temp: 1,
-      set_temp: 1,
-      hysteresis: 1,
-      specific_gravity: 'sg1',
-      cooler_shelly_addr: 'csa1',
-      heater_shelly_addr: 'hsa1',
-      rssi: 'rssi1'
+      // id: 1,
+      // name: 'wort1',
+      // tilt_color: 'color1',
+      // temp: 1,
+      // set_temp: 1,
+      // hysteresis: 1,
+      // specific_gravity: 'sg1',
+      // cooler_shelly_addr: 'csa1',
+      // heater_shelly_addr: 'hsa1',
+      // rssi: 'rssi1'
     },
     {
-      id: 2,
-      name: 'wort2',
-      tilt_color: 'color2',
-      temp: 2,
-      set_temp: 2,
-      hysteresis: 2,
-      specific_gravity: 'sg2',
-      cooler_shelly_addr: 'csa2',
-      heater_shelly_addr: 'hsa2',
-      rssi: 'rssi2'
+      // id: 2,
+      // name: 'wort2',
+      // tilt_color: 'color2',
+      // temp: 2,
+      // set_temp: 2,
+      // hysteresis: 2,
+      // specific_gravity: 'sg2',
+      // cooler_shelly_addr: 'csa2',
+      // heater_shelly_addr: 'hsa2',
+      // rssi: 'rssi2'
     },
     {
-      id: 3,
-      name: 'wort3',
-      tilt_color: 'color3',
-      temp: 3,
-      set_temp: 3,
-      hysteresis: 3,
-      specific_gravity: 'sg3',
-      cooler_shelly_addr: 'csa3',
-      heater_shelly_addr: 'hsa3',
-      rssi: 'rssi3'
+      // id: 3,
+      // name: 'wort3',
+      // tilt_color: 'color3',
+      // temp: 3,
+      // set_temp: 3,
+      // hysteresis: 3,
+      // specific_gravity: 'sg3',
+      // cooler_shelly_addr: 'csa3',
+      // heater_shelly_addr: 'hsa3',
+      // rssi: 'rssi3'
     },
   ],
   chiller_shelly_addr: 'chiller_shelly'
@@ -70,14 +70,10 @@ export const saveStateThunk = createAsyncThunk(
   }
 );
 
-// export const savePositionHttp = createAsyncThunk('/fence/savePosition', async position => {
-//     const response = await fetch('/fence/save_position', {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify({position: position})
-//     })
-//     return response.json()
-// })
+export const fetchState = createAsyncThunk('/brew/fetchState', async () => {
+  const response = await fetch('/brew')
+  return response.json()
+})
 
 export const brewSlice = createSlice({
   name: 'brew',
@@ -90,6 +86,10 @@ export const brewSlice = createSlice({
   extraReducers:{
     [saveState.fulfilled]: (state, action) => {
       console.log('saveState', action)
+    },
+    [fetchState.fulfilled]: (state, action) => {
+      const fetchedState = action.payload
+      for (let key of Object.keys(fetchedState)){state[key] = fetchedState[key]}
     },
   },
 });
