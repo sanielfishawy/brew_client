@@ -75,6 +75,7 @@ export const Wort = (props) => {
                     onFocusOut={handle_hysteresis_change}
                 />
             </div>
+            <div>{wort.status}</div>
             <div>{wort.specific_gravity}</div>
             <div>
                 <EditableLabel 

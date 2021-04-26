@@ -23,6 +23,7 @@ function App() {
           <div className={styles.titleColumn}>Temp</div>
           <div className={styles.titleColumn}>Set temp</div>
           <div className={styles.titleColumn}>Hysteresis</div>
+          <div className={styles.titleColumn}>Status</div>
           <div className={styles.titleColumn}>Specific gravity</div>
           <div className={styles.titleColumn}>Cool shelby addr</div>
           <div className={styles.titleColumn}>Heat shelby addr</div>
