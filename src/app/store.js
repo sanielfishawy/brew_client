@@ -10,5 +10,5 @@ export const store = configureStore({
 
 setInterval(
   async () => {await store.dispatch(fetchState())},
-  20000,
+  1000,
 )
