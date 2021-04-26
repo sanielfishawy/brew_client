@@ -7,6 +7,7 @@ import styles from './App.module.css'
 
 
 function App() {
+  const chiller_shelly_addr = useSelector( state => state.chiller_shelly_addr )
   const worts = useSelector( state => state.brew.worts )
 
   const wort_cols = worts.map ( wort => 
@@ -16,6 +17,9 @@ function App() {
   return (
 
     <Container>
+      <Row>
+        Chiller Shelly Addr: {chiller_shelly_addr}
+      </Row>
       <Row>
         <Col>
           <div className={styles.titleColumn}>Name</div>
