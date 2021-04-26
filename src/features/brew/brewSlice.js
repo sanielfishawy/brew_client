@@ -49,6 +49,9 @@ export const brewSlice = createSlice({
     updateWort: (state, action) => {
       state.worts[action.payload.wort_id] = action.payload.wort
     },
+    updateChillerAddr: (state, action) => {
+      state.chiller_shelly_addr = action.payload
+    },
   },
   extraReducers:{
     [saveState.fulfilled]: (state, action) => {
@@ -61,6 +64,6 @@ export const brewSlice = createSlice({
   },
 });
 
-export const { updateWort } = brewSlice.actions;
+export const { updateWort, updateChillerAddr } = brewSlice.actions;
 
 export default brewSlice.reducer;

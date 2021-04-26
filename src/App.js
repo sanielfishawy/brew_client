@@ -1,10 +1,11 @@
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Wort } from './features/brew/Wort'
 import styles from './App.module.css'
-import EditableLabel from './EditableLabel';
+import EditableLabel from './features/brew/EditableLabel';
+import { updateChillerAddr, saveState } from './features/brew/brewSlice'
 
 
 function App() {
@@ -15,8 +16,10 @@ function App() {
       <Col key={wort.id}><Wort wort_id={wort.id}/></Col>
     )
 
+  const dispatch = useDispatch()
   const handle_chiller_change = (value) => {
-
+    dispatch(updateChillerAddr(value))
+    dispatch(saveState())
   }
 
   return (
