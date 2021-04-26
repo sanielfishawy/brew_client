@@ -4,21 +4,30 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Wort } from './features/brew/Wort'
 import styles from './App.module.css'
+import EditableLabel from './EditableLabel';
 
 
 function App() {
-  const chiller_shelly_addr = useSelector( state => state.chiller_shelly_addr )
+  const chiller_shelly_addr = useSelector( state => state.brew.chiller_shelly_addr )
   const worts = useSelector( state => state.brew.worts )
 
   const wort_cols = worts.map ( wort => 
       <Col key={wort.id}><Wort wort_id={wort.id}/></Col>
     )
 
+  const handle_chiller_change = (value) => {
+
+  }
+
   return (
 
     <Container>
       <Row>
-        Chiller Shelly Addr: {chiller_shelly_addr}
+        Chiller Shelly Addr: 
+        <EditableLabel 
+                    value={chiller_shelly_addr}
+                    onFocusOut={handle_chiller_change}
+        />
       </Row>
       <Row>
         <Col>
