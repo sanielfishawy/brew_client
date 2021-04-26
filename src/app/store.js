@@ -8,6 +8,7 @@ export const store = configureStore({
   },
 });
 
+store.dispatch(fetchState())
 setInterval(
   async () => {await store.dispatch(fetchState())},
   1000,
